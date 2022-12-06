@@ -1,7 +1,5 @@
 package com.app.coursesapp.dao;
 
-
-
 import com.app.coursesapp.entity.Flight;
 import com.app.coursesapp.entity.FlightStatus;
 import com.app.coursesapp.util.ConnectionManager;
@@ -77,12 +75,5 @@ public class FlightDao implements Dao<Long, Flight> {
                 FlightStatus.valueOf(resultSet.getObject("status", String.class))
         );
     }
-
-
-
-
-
-
-
 
 }
