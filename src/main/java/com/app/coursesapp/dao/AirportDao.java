@@ -26,7 +26,7 @@ public class AirportDao implements Dao<String, Airport>{
     public List<Airport> findAllByCode(String code) {
         try (var connection = ConnectionManager.get();
              var preparedStatement = connection.prepareStatement(FIND_AIRPORT_BY_CODE)) {
-            preparedStatement.setObject(1, code);
+            preparedStatement.setString(1, code);
 
             var resultSet = preparedStatement.executeQuery();
             List<Airport> airports = new ArrayList<>();
