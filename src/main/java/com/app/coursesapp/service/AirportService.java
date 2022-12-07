@@ -13,10 +13,10 @@ public class AirportService {
 
 
     public List<AirportDto> findAll(String code){
-        return airportDao.findAllByCode(code).stream().map(airport -> new AirportDto(
-                airport.getCode(),
-                "%s - %s".formatted(airport.getCountry(),airport.getCity())
-        )).collect(Collectors.toList());
+        return airportDao.findAllByCode(code).stream().map(airport -> AirportDto.builder()
+                .code(airport.getCode()).
+                description("%s - %s".formatted(airport.getCountry(), airport.getCity())).build()
+        ).collect(Collectors.toList());
     }
 
 

@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 @WebServlet("/airport")
 public class AirportServlet extends HttpServlet {
@@ -23,8 +24,9 @@ public class AirportServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         writer.println("<h1>Аэропорты:</h1>");
         writer.write("<ul>");
-        airportService.findAll(code).forEach(airportDto -> writer.println(airportDto.getDescription()));
+        airportService.findAll(code).forEach(airportDto -> writer.println(airportDto.getCode() + " " +airportDto.getDescription()));
         writer.write("</ul>");
+
 
     }
 
