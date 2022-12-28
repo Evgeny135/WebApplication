@@ -10,6 +10,8 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+
+@MultipartConfig(fileSizeThreshold = 1024*1024)
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
@@ -35,6 +37,7 @@ public class RegistrationServlet extends HttpServlet {
                 .password(request.getParameter("password"))
                 .role(request.getParameter("role"))
                 .gender(request.getParameter("gender"))
+                .image(request.getPart("image"))
                 .build();
 
         userService.create(userDto);

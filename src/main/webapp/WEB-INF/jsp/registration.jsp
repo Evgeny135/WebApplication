@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/registration" method="post">
+<form action="/registration" method="post" enctype="multipart/form-data">
     <label for="name">Имя:
         <input type="text" name="name" id="name">
     </label><br>
@@ -17,7 +17,10 @@
     </label><br>
     <label for="passwordId">Password:
         <input type="password" name="password" id="passwordId">
-    </label><br> 
+    </label><br>
+    <label for="imageId">Image:
+        <input type="file" name="image" id="imageId" required>
+    </label><br>
     <select name="role" id="role">
         <c:forEach var="role" items="${requestScope.roles}">
             <option value="${role}">${role}</option>

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 public class CreateUserMapper implements Mapper<CreateUserDto, User> {
 
     private static  final CreateUserMapper INSTANCE = new CreateUserMapper();
+    private static final String IMAGE_FOLDER = "users/";
 
     @Override
     public User mapFrom(CreateUserDto object) {
@@ -20,6 +21,7 @@ public class CreateUserMapper implements Mapper<CreateUserDto, User> {
                 .password(object.getPassword())
                 .gender(Gender.valueOf(object.getGender()))
                 .role(Role.valueOf(object.getRole()))
+                .image(IMAGE_FOLDER+ object.getImage().getSubmittedFileName())
                 .birthday(LocalDateFormatter.format(object.getBirthday()))
                 .build();
     }
