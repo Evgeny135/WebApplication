@@ -36,6 +36,7 @@ public class FirstServlet extends HttpServlet {
         try (var reader = req.getReader();
              var lines = reader.lines()) {
             lines.forEach(System.out::println);
+
         }
     }
 
